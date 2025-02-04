@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2E7F634D-1DF1-4C38-936A-2C0EC85CC88C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>PwdView</RootNamespace>
+    <AssemblyName>PwdView</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AesGcm.cs" />
+    <Compile Include="BCrypt.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\alter_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\analyze_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\attach_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\auth_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\backup_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\bitvec_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\btmutex_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\BtreeInt_h.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\btree_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\Btree_h.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\build_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\callback_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\complete_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\crypto.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\ctime_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\date_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\Delegates.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\delete_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\expr_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\fault_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\fkey_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\func_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\global_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\hash_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\Hash_h.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\hwtime_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\insert_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\journal_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\keywordhash_h.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\legacy_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\loadext_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\main_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\malloc_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\memjournal_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\mem_Pool.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\mutex_h.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\mutex_noop_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\notify_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\opcodes_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\opcodes_h.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\os_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\os_common_h.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\os_h.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\os_win_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\pager_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\pager_h.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\parse_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\parse_h.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\pcache1_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\pcache_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\pcache_h.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\pragma_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\prepare_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\printf_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\random_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\resolve_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\rowset_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\select_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\sqlite3_h.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\sqliteInt_h.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\sqliteLimit_h.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\status_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\table_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\tokenize_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\trigger_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\update_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\utf_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\util_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\vacuum_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\vdbeapi_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\vdbeaux_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\vdbeblob_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\VdbeInt_h.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\vdbemem_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\vdbetrace_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\vdbe_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\Vdbe_h.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\vtab_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\walker_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\wal_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\wal_h.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\where_c.cs" />
+    <Compile Include="SQLite\csharp-sqlite-src\_Custom.cs" />
+    <Compile Include="SQLite\SQLite.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
