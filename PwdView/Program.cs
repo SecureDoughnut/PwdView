@@ -1,13 +1,10 @@
-﻿using PassView;
-using SQLite;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-using static Community.CsharpSqlite.Sqlite3;
 
 namespace PwdView
 {
@@ -40,28 +37,39 @@ namespace PwdView
 
 
             }
+
+            Console.Read();
         }
+
 
         public static void GetLogins(string loginData, byte[] masterKey)
         {
-            SQLiteConnection database = new SQLiteConnection(loginData, SQLiteOpenFlags.ReadOnly | SQLiteOpenFlags.OpenUri, false);
 
-            string query = "SELECT origin_url, username_value, password_value FROM logins";
-            List<SQLiteQueryRow> results = database.Query2(query, false);
+            string randomPath = Path.Combine(temp, Path.GetRandomFileName());
+            File.Copy(loginData, randomPath);
 
-            foreach (SQLiteQueryRow row in results)
+            SqlLite3Parser parser = new SqlLite3Parser(File.ReadAllBytes(randomPath));
+            parser.ReadTable("logins");
+
+            for (int i = 0; i < parser.GetRowCount(); i++)
             {
-                byte[] passwordBytes = (byte[])row.column[2].Value;
+                byte[] password_buffer = parser.GetValue<byte[]>(i, "password_value");
+                string username = parser.GetValue<string>(i, "username_value");
+                string url = parser.GetValue<string>(i, "origin_url");
 
-                string password = Encoding.Default.GetString(DecryptWithKey(passwordBytes, masterKey));
+                if (password_buffer == null || username == null || url == null)
+                {
+                    continue;
+                }
 
-                Console.WriteLine("URL       : {0}", row.column[0].Value);
-                Console.WriteLine("Username  : {0}", row.column[1].Value);
+                string password = Encoding.Default.GetString(DecryptWithKey(password_buffer, masterKey));
+
+                Console.WriteLine("URL       : {0}", url);
+                Console.WriteLine("Username  : {0}", username);
                 Console.WriteLine("Password  : {0}", password);
                 Console.WriteLine();
-            }
 
-            database.Close();
+            }
 
         }
 
@@ -71,10 +79,25 @@ namespace PwdView
 
             try
             {
-                var files = Directory.GetFiles(path, pattern, SearchOption.AllDirectories);
-
+                var files = Directory.GetFiles(path, pattern, SearchOption.TopDirectoryOnly);
                 foreach (var file in files)
                     foundFiles.Add(file);
+
+                var directories = Directory.GetDirectories(path);
+                foreach (var directory in directories)
+                {
+                    try
+                    {
+                        var subDirFiles = SearchFiles(directory, pattern);
+                        foreach (var file in subDirFiles)
+                            foundFiles.Add(file);
+
+                    }
+                    catch
+                    {
+                        continue;
+                    }
+                }
             }
             catch
             { }

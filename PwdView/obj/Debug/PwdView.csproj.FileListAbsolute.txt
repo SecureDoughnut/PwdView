@@ -1,0 +1,7 @@
+C:\Users\PC\source\repos\PwdView\PwdView\bin\Debug\PwdView.exe.config
+C:\Users\PC\source\repos\PwdView\PwdView\bin\Debug\PwdView.exe
+C:\Users\PC\source\repos\PwdView\PwdView\bin\Debug\PwdView.pdb
+C:\Users\PC\source\repos\PwdView\PwdView\obj\Debug\PwdView.csproj.AssemblyReference.cache
+C:\Users\PC\source\repos\PwdView\PwdView\obj\Debug\PwdView.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\PwdView\PwdView\obj\Debug\PwdView.exe
+C:\Users\PC\source\repos\PwdView\PwdView\obj\Debug\PwdView.pdb
